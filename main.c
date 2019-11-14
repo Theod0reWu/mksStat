@@ -13,11 +13,11 @@ int main(int argc, char const *argv[]) {
 
   printf("There are ");
   if (size >= pow(10,9)){
-  	printf("%d Gigabytes", (double)size / pow(10,9) );
+  	printf("%f Gigabytes", (double)size / pow(10,9) );
   }else {
   	printf("%i Bytes", size); //I doubt there could be more than a gigbyte in an .exe file
   } printf(" in the file\n\n");
-  
+
   mode = mode & (int) pow(2,9)-1;
   int smode [3]; int i = 2;
   while (mode > 0){
@@ -45,8 +45,9 @@ int main(int argc, char const *argv[]) {
   printf(" %s", getpwuid(info.st_uid)->pw_name);
   printf(" %i", info.st_uid);
   printf(" %i", size);
-  char*t;
+  char t [20];
   strncpy(t,time_stamp+4, 12);
+  t[19] = '\0';
   printf(" %s", t);
   printf( " program\n");
   return 0;

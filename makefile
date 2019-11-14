@@ -1,18 +1,17 @@
 ifeq ($(DEBUG), true)
-        CC = gcc -g
+	CC = gcc -g
 else
-        CC = gcc
+    CC = gcc
 endif
 
 all: main.o
-        $(CC) -o program main.o
-
+	$(CC) -o program main.o
 main.o: main.c stat.h
-        $(CC) -c  main.c
+	$(CC) -c  main.c
 
 run:
-        ./program
+	./program
 
 clean:
-        rm*.o
-        rm*~
+	rm*.o
+	rm*~

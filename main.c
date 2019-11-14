@@ -30,24 +30,25 @@ int main(int argc, char const *argv[]) {
   printf("custom ls -l for the program executable file:\n-----------------------------------------------\n");
   printf("-");
   for (i = 0; i < 3; i++){
-  	char s [3];
+  	char s [4];
   	for (int p = 0; p < 3; ++p)
   	{
   		//printf("%i : %i \n", p, smode[i]);
-  		if (p == 0 && smode[i] % 2 == 1){s[0] = 'r' ;}
-  		else if (p == 1 && smode[i]  % 2 == 1) {s[1]= 'w';}
+  		if (p == 0 && smode[i] % 2 == 1){s[p] = 'r' ;}
+  		else if (p == 1 && smode[i]  % 2 == 1) {s[p]= 'w';}
   		else if (p == 2 && smode[i]  % 2 == 1) {s[p] = 'x';}
   		else {s[p] = '-';}
   		smode[i] = smode[i] / 2;
   	}
+    s[3] = '\0';
   	printf("%s", s);
   }
   printf(" %s", getpwuid(info.st_uid)->pw_name);
   printf(" %i", info.st_uid);
   printf(" %i", size);
-  char t [20];
+  char t [15];
   strncpy(t,time_stamp+4, 12);
-  t[19] = '\0';
+  t[14] = '\0';
   printf(" %s", t);
   printf( " program\n");
   return 0;
